@@ -32,7 +32,7 @@
             android:background="@drawable/bg_edit_text"
             android:hint="Digite seu e-mail"
             android:inputType="textEmailAddress"
-            android:padding="16dp" />
+            android:padding="8dp" />
 
 
         <TextView
