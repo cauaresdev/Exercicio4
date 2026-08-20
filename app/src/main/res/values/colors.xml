@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- New Slate Grey & Teal Theme -->
+    <color name="color_primary">#2D3436</color> <!-- Slate Grey -->
+    <color name="color_secondary">#00CEC9</color> <!-- Teal -->
+    <color name="color_accent">#81ECEC</color> <!-- Light Teal -->
+    <color name="color_background">#FDFDFD</color> <!-- Very Light Grey -->
+    
+    <!-- Legacy name to avoid breaking code that uses it, but updated to the new primary -->
+    <color name="color_default">#2D3436</color>
+</resources>
