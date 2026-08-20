@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,10 +9,23 @@
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context=".MainActivity">
+=======
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/color_default"
+    android:gravity="center">
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+<<<<<<< HEAD
         android:src="@drawable/ic_logo"/>
+=======
+        android:src="@drawable/ic_logo" />
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 
 </LinearLayout>

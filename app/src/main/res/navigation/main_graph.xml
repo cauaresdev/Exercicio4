@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools"
+=======
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
     android:id="@+id/main_graph"
     app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/splashFragment"
+<<<<<<< HEAD
         android:name="com.cauarosa.navegabilidadeentreastelas.ui.SplashFragment"
         android:label="SplashFragment" >
         <action
@@ -54,4 +58,8 @@
             app:popUpTo="@id/main_graph"
             app:popUpToInclusive="true" />
     </fragment>
+=======
+        android:name="com.example.exercicio4.ui.SplashFragment"
+        android:label="SplashFragment" />
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 </navigation>

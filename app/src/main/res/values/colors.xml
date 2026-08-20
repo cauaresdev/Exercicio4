@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
 
     <!-- New Slate Grey & Teal Theme -->
     <color name="color_primary">#2D3436</color> <!-- Slate Grey -->
@@ -11,4 +12,7 @@
     
     <!-- Legacy name to avoid breaking code that uses it, but updated to the new primary -->
     <color name="color_default">#2D3436</color>
+=======
+    <color name="color_default">#0277BD</color>
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 </resources>

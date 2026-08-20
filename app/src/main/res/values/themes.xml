@@ -1,5 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Base.Theme.NavegabilidadeEntreAsTelas" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/color_primary</item>
@@ -15,4 +16,14 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
     </style>
+=======
+    <style name="Base.Theme.Exercicio4" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/color_default</item>
+        <item name="colorPrimaryVariant">@color/color_default</item>
+        <item name="android:windowBackground">@color/color_default</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <style name="Theme.Exercicio4" parent="Base.Theme.Exercicio4" />
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 </resources>

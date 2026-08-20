@@ -4,13 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
     android:fillViewport="true"
     tools:context=".ui.auth.RecoverAccountFragment">
+=======
+    tools:context=".ui.auth.RecoverAccountFragment"
+    android:background="@color/color_default"
+    android:fillViewport="true">
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:orientation="vertical">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -18,12 +26,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back"
+=======
+        android:orientation="vertical"
+        android:padding="25dp">
+
+
+
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/mingcute__left_fill"
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
             android:paddingTop="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recuperar Conta"
+<<<<<<< HEAD
                 android:textColor="@color/color_primary"
                 android:layout_gravity="center_horizontal"/>
 
@@ -78,10 +100,53 @@
                 android:padding="10dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edit_text"/>
+=======
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"/>
+
+
+
+
+        </com.google.android.material.appbar.MaterialToolbar>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewMensagem"
+            android:text="Informe seu e-mail de cadastro para receber \n um link para alteração de senha."
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="24dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="E-mail"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:layout_width="358dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Digite seu e-mail"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_contraintEnd_toEndOf="parent">
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:text="Enviar"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
@@ -101,5 +166,19 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"/>
         </LinearLayout>
+=======
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_btn"
+                android:text="Enviar"
+                android:textColor="@color/color_default"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/white"
+            android:layout_gravity="center"/>
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
     </LinearLayout>
 </ScrollView>

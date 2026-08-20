@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Base.Theme.NavegabilidadeEntreAsTelas" parent="Theme.Material3.DayNight.NoActionBar">
+=======
+    <style name="Base.Theme.Exercicio4" parent="Theme.Material3.DayNight.NoActionBar">
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>

@@ -4,14 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
     tools:context=".ui.auth.LoginFragment">
     
+=======
+    tools:context=".ui.auth.LoginFragment"
+    android:background="@color/color_default">
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent"
+=======
+        app:layout_contraintEnd_toEndOf="parent"
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical"
@@ -21,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="E-mail"
+<<<<<<< HEAD
             android:textColor="@color/color_primary"/>
 
         <EditText
@@ -31,14 +42,36 @@
             android:padding="10dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_edit_text"/>
+=======
+            android:textColor="@color/white"/>
+
+
+        <EditText
+            android:layout_width="358dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Digite seu e-mail"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
+
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Senha"
+<<<<<<< HEAD
             android:textColor="@color/color_primary"
 
             android:layout_marginTop="16dp"/>
 
+=======
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"/>
+
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
         <EditText
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -48,6 +81,7 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_edit_text"/>
 
+<<<<<<< HEAD
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
@@ -57,6 +91,21 @@
             app:backgroundTint="@null"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_btn"/>
+=======
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/color_default"
+            app:backgroundTint="@null"
+            android:background="@drawable/bg_btn"
+            android:layout_marginTop="16dp"/>
+
+
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,30 +113,57 @@
             android:orientation="horizontal"
             android:layout_marginTop="4dp">
 
+<<<<<<< HEAD
             <TextView
                 android:id="@+id/btnRegister"
+=======
+
+            <TextView
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Criar Conta"
                 android:layout_weight="1"
                 android:textAlignment="textStart"
+<<<<<<< HEAD
                 android:textColor="@color/color_primary"/>
 
             <TextView
                 android:id="@+id/btnRecover"
+=======
+                android:textColor="@color/white"/>
+
+
+
+            <TextView
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recuperar Conta"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
+<<<<<<< HEAD
                 android:textColor="@color/color_primary"/>
+=======
+                android:textColor="@color/white"/>
+
+
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
         </LinearLayout>
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:indeterminateTint="@color/color_secondary"
             android:layout_gravity="center"
             tools:visibility="visible"
             android:visibility="invisible"/>
     </LinearLayout>
+=======
+            android:indeterminateTint="@color/white"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 </androidx.constraintlayout.widget.ConstraintLayout>

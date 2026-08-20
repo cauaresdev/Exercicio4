@@ -19,6 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "Navegabilidade entre as telas"
+=======
+rootProject.name = "Exercicio4"
+>>>>>>> 41199c7cde2fb0380f7882a952d4cc4306637a3f
 include(":app")
  
