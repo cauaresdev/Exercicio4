@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Navegabilidade App</string>
+
+    <string name="status_task_todo">Pendente</string>
+    <string name="status_task_doing">Em Andamento</string>
+    <string name="status_task_done">Concluído</string>
+    <string name="hint_edit_email">Digite seu e-mail</string>
+    <string name="hint_edit_password">Digite sua senha</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_title_warning">AtenÃ§Ã£o</string>
+    <string name="text_button_warning">Entendi</string>
+
+    <string name="password_empty">Preencha a senha!</string>
+    <string name="email_empty">Preencha  seu email!</string>
+    <string name="password_text">Senha!</string>
+    <string name="email_text">E-mail</string>
+
+    <string name="email_empty_register_fragment">Preencha um e-mail vÃ¡lido.</string>
+    <string name="password_empty_register_fragment">Preencha uma senha.</string>
+    <string name="text_button_register_fragment">Enviar</string>
+    <string name="text_title_toolbar_register_fragment">Criar conta</string>
+
+    <string name="description_empty_form_task_fragment">Preencha uma descriÃ§Ã£o.</string>
+    <string name="text_title_login_fragment">Acessar</string>
+    <string name="text_title_recover_fragment">Criar conta</string>
+    <string name="text_button_recover_login_fragment">Recuperar conta</string>
+
+    <string name="text_info_recover_account_fragment">Informe seu email de cadastro para receber \n um link para alteraÃ§Ã£o de senha.</string>
+    <string name="text_title_toolbar_recover_account_fragment">Recuperar conta</string>
+    <string name="text_button_recover_account_fragment">Enviar</string>
+    <string name="save">Salvar</string>
+    <string name="status">Status</string>
+    <string name="inform_your_new_task">Informe sua nova tarefa</string>
+    <string name="description_text">DescriÃ§Ã£o</string>
+    <string name="new_task">Nova tarefa</string>
+    <string name="text_button_message">Mensagem</string>
+</resources>
