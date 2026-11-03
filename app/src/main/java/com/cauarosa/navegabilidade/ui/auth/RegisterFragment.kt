@@ -1,17 +1,19 @@
 package com.cauarosa.navegabilidade.ui.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.cauarosa.navegabilidade.R
 import com.cauarosa.navegabilidade.databinding.FragmentRegisterBinding
+import com.cauarosa.navegabilidade.ui.BaseFragment
+import com.cauarosa.navegabilidade.util.FirebaseHelper
 import com.cauarosa.navegabilidade.util.initToolbar
 import com.cauarosa.navegabilidade.util.showBottomSheet
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
@@ -30,7 +32,7 @@ class RegisterFragment : Fragment() {
         initListener()
     }
 
-    private fun initListener(){
+    private fun initListener() {
         binding.registrar.setOnClickListener {
             validateData()
         }
@@ -39,15 +41,31 @@ class RegisterFragment : Fragment() {
     private fun validateData() {
         val email = binding.email.text.toString().trim()
         val senha = binding.senha.text.toString().trim()
-        if(email.isNotBlank()){
-            if(senha.isNotBlank()){
-                Toast.makeText(requireContext(), "Tudo OK!", Toast.LENGTH_SHORT).show()
-            }else{
+        if (email.isNotBlank()) {
+            if (senha.isNotBlank()) {
+                hideKeyboard()
+                binding.progressBar.isVisible = true
+                registerUser(email, senha)
+            } else {
                 showBottomSheet(message = getString(R.string.password_empty_register_fragment))
             }
-        }else{
+        } else {
             showBottomSheet(message = getString(R.string.email_empty_register_fragment))
         }
+    }
+
+    private fun registerUser(email: String, password: String) {
+        FirebaseHelper.getAuth().createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    findNavController().navigate(R.id.action_global_homeFragment)
+                } else {
+                    binding.progressBar.isVisible = false
+                    showBottomSheet(
+                        message = getString(FirebaseHelper.validError(task.exception?.message.toString()))
+                    )
+                }
+            }
     }
 
     override fun onDestroyView() {

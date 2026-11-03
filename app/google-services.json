@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "215461861857",
+    "firebase_url": "https://taskapp-cauarosa-default-rtdb.firebaseio.com",
+    "project_id": "taskapp-cauarosa",
+    "storage_bucket": "taskapp-cauarosa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215461861857:android:416ab46620f2a82820daa0",
+        "android_client_info": {
+          "package_name": "com.cauarosa.navegabilidade"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdWoRrrHZXnYO3D6yl9DpgoGSepYkvc1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

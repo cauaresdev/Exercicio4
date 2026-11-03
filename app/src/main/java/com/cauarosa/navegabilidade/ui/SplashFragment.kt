@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.cauarosa.navegabilidade.R
 import com.cauarosa.navegabilidade.databinding.FragmentSplashBinding
+import com.cauarosa.navegabilidade.util.FirebaseHelper
 
 class SplashFragment : Fragment() {
 
@@ -27,16 +28,19 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Handler(Looper.getMainLooper()).postDelayed({checkAuth()}, 3000)
+        Handler(Looper.getMainLooper()).postDelayed({ checkAuth() }, 3000)
     }
 
     private fun checkAuth() {
-        findNavController().navigate(R.id.action_splashFragment_to_authentication)
+        if (FirebaseHelper.isAutenticated()) {
+            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        } else {
+            findNavController().navigate(R.id.action_splashFragment_to_authentication)
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

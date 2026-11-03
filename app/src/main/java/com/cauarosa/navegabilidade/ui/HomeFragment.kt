@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.cauarosa.navegabilidade.R
 import com.cauarosa.navegabilidade.databinding.FragmentHomeBinding
 import com.cauarosa.navegabilidade.ui.adapter.ViewPageAdapter
+import com.cauarosa.navegabilidade.util.FirebaseHelper
+import com.cauarosa.navegabilidade.util.showBottomSheet
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
@@ -27,6 +30,21 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initTabs()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.btnLogout.setOnClickListener {
+            showBottomSheet(
+                titleButton = R.string.text_button_dialog_confirm_logout,
+                titleDialog = R.string.text_title_dialog_confirm_logout,
+                message = getString(R.string.text_message_dialog_confirm_logout),
+                onClick = {
+                    FirebaseHelper.getAuth().signOut()
+                    findNavController().navigate(R.id.action_homeFragment_to_authentication)
+                }
+            )
+        }
     }
 
     private fun initTabs() {

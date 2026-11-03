@@ -6,18 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cauarosa.navegabilidade.R
 import com.cauarosa.navegabilidade.data.model.Status
 import com.cauarosa.navegabilidade.data.model.Task
 import com.cauarosa.navegabilidade.databinding.FragmentDoneBinding
 import com.cauarosa.navegabilidade.ui.adapter.TaskAdapter
+import com.cauarosa.navegabilidade.util.FirebaseHelper
+import com.cauarosa.navegabilidade.util.showBottomSheet
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class DoneFragment : Fragment() {
 
-    private lateinit var taskAdapter: TaskAdapter
-
     private var _biding: FragmentDoneBinding? = null
     private val binding get() = _biding!!
+
+    private lateinit var taskAdapter: TaskAdapter
+    private val viewModel: TaskViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +41,21 @@ class DoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerViewTask()
         getTask()
+        observerViewModel()
+    }
+
+    private fun observerViewModel() {
+        viewModel.taskUpdate.observe(viewLifecycleOwner) { updateTask ->
+            if (updateTask.status == Status.DONE) {
+                val oldList = taskAdapter.currentList
+                val newList = oldList.toMutableList().apply {
+                    find { it.id == updateTask.id }?.description = updateTask.description
+                }
+                val position = newList.indexOfFirst { it.id == updateTask.id }
+                taskAdapter.submitList(newList)
+                taskAdapter.notifyItemChanged(position)
+            }
+        }
     }
 
     private fun initRecyclerViewTask() {
@@ -45,33 +70,99 @@ class DoneFragment : Fragment() {
 
     private fun optionSelected(task: Task, option: Int) {
         when (option) {
+            TaskAdapter.SELECT_BACK -> {
+                task.status = Status.DOING
+                updateTask(task)
+            }
+
             TaskAdapter.SELECT_REMOVER -> {
-                Toast.makeText(requireContext(), "Removendo ${task.description}", Toast.LENGTH_SHORT).show()
+                showBottomSheet(
+                    titleDialog = R.string.text_title_dialog_delete,
+                    message = getString(R.string.text_message_dialog_delete),
+                    titleButton = R.string.text_button_dialog_confirm,
+                    onClick = {
+                        deleteTask(task)
+                    }
+                )
             }
 
             TaskAdapter.SELECT_EDIT -> {
-                Toast.makeText(requireContext(), "Editando ${task.description}", Toast.LENGTH_SHORT).show()
+                val action = HomeFragmentDirections.actionHomeFragmentToFormTaskFragment(task)
+                findNavController().navigate(action)
             }
 
             TaskAdapter.SELECT_DETAILS -> {
                 Toast.makeText(requireContext(), "Detalhes ${task.description}", Toast.LENGTH_SHORT).show()
             }
-
-            TaskAdapter.SELECT_NEXT -> {
-                Toast.makeText(requireContext(), "Próximo", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 
     private fun getTask() {
-        val taskList = listOf(
-            Task("8", "Atualizar o Android Studio", Status.DONE),
-            Task("9", "Acompanhar o Google I/O", Status.DONE),
-            Task("10", "Keep Android Open", Status.DONE),
-            Task("11", "Consertar leitor de PDF", Status.DONE)
-        )
+        FirebaseHelper.getDatabase()
+            .child("task")
+            .child(FirebaseHelper.getIdUser())
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val taskList = mutableListOf<Task>()
+                    for (ds in snapshot.children) {
+                        val task = ds.getValue(Task::class.java) as Task
+                        if (task.status == Status.DONE) {
+                            taskList.add(task)
+                        }
+                    }
+                    binding.progressBar.isVisible = false
+                    listEmpty(taskList)
+                    taskList.reverse()
+                    taskAdapter.submitList(taskList)
+                }
 
-        taskAdapter.submitList(taskList)
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+    }
+
+    private fun deleteTask(task: Task) {
+        FirebaseHelper.getDatabase()
+            .child("task")
+            .child(FirebaseHelper.getIdUser())
+            .child(task.id)
+            .removeValue().addOnCompleteListener { result ->
+                if (result.isSuccessful) {
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.text_delete_sucess_task,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(requireContext(), R.string.error_generic, Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun updateTask(task: Task) {
+        FirebaseHelper.getDatabase()
+            .child("task")
+            .child(FirebaseHelper.getIdUser())
+            .child(task.id)
+            .setValue(task).addOnCompleteListener { result ->
+                if (result.isSuccessful) {
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.text_update_sucess_form_task_fragment,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(requireContext(), R.string.error_generic, Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun listEmpty(taskList: List<Task>) {
+        binding.textInfo.text = if (taskList.isEmpty()) {
+            getString(R.string.text_list_task_empty)
+        } else {
+            ""
+        }
     }
 
     override fun onDestroyView() {
