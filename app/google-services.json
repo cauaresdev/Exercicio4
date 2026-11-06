@@ -13,7 +13,20 @@
           "package_name": "com.cauarosa.navegabilidade"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "215461861857-8g08lp5jr17iafe2he6d61lsvcj1hk26.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cauarosa.navegabilidade",
+            "certificate_hash": "d80a25c0e292db4b4316d3a744724c2bff93b054"
+          }
+        },
+        {
+          "client_id": "215461861857-84hq0sqehfmof4j3hu0pas58uei63m8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBdWoRrrHZXnYO3D6yl9DpgoGSepYkvc1w"
@@ -21,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215461861857-84hq0sqehfmof4j3hu0pas58uei63m8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
